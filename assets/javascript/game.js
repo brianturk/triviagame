@@ -11,13 +11,19 @@ var questions = {};
 var totalTime = 60;
 var questionTime = 10;
 var questionNumber = 0;
+var correctAnswer = "";
 
 $(document).ready(function () {
 
     $(document).on("click","#gamestart",startGame);
-    // $(document).on("click","#answer",answer());
+    $(document).on("click","#answer",answer);
 
     startGame()
+
+
+    function answer () {
+        
+    }
 
     function startGame() {
         if (state === "begin") {  //first time in game
@@ -34,16 +40,16 @@ $(document).ready(function () {
             $.getJSON( "https://opentdb.com/api.php?amount=50&category=21&type=multiple", function( data ) {
 
                 response = data["response_code"];
-                console.log(data['results'][1]['category']);
                 // console.log(data[1]["results"]["category"]);
                 if (response === 0) {   //got questions
                     questions = data;
 
                     console.log(questions);
 
-                    //Start timer and then show first question
-                    // setInterval(totalCountDown(),1000);
-                    // setQuestion();
+                    // Start timer and then show first question
+                    totalTime = 60;
+                    setInterval(totalCountDown,1000);
+                    setQuestion();
 
 
                 } else {   //error getting questions
@@ -55,9 +61,9 @@ $(document).ready(function () {
 
 
     function totalCountDown () {
-        
+        console.log(totalTime);
         if (totalTime !=0) {
-            totalTime--;
+            totalTime = totalTime - 1;
             $("#total-time").text(totalTime);
         } else {
             //end it
@@ -70,7 +76,7 @@ $(document).ready(function () {
             $("#question-time").text(questionTime);
         } else {
             //show -- to slow
-            setQuestion();
+            //set no answer and set next question
         }
     }
 
@@ -78,15 +84,21 @@ $(document).ready(function () {
     function setQuestion () {
         //start timer for question
         questionTime = 10;
-        setInterval(questionCountDown(),1000);
+        setInterval(questionCountDown,1000);
 
-        var answers;
+        var answers = [];
+       
 
         correctAnswerSpot = Math.floor((Math.random() * 3));
-        $each(question['results'][questionNumber]['incorrect_answers'],function(key,val) {
+        correctAnswer = questions['results'][questionNumber]['correct_answer'];
+        var lastAnswer = "";
+        
+        if (correctAnswerSpot === 3) { lastAnswer = correctAnswer;}
+
+        $.each(questions['results'][questionNumber]['incorrect_answers'],function(key,val) {
             if (correctAnswerSpot === key) {
-                answers.push(question['results'][questionNumber]['correct_answer']);
-                var lastAnswer = val;
+                answers.push(correctAnswer);
+                lastAnswer = val;
             } else {
                 answers.push(val);
             }
@@ -94,15 +106,15 @@ $(document).ready(function () {
 
         answers.push(lastAnswer);
 
-        $("#main").html(question['results'][questionNumber]['question']
+        $("#main").html(questions['results'][questionNumber]['question']
+                    + '<br><br><p><button type="button" class="btn btn-light button answer">' 
+                    + answers[0] + '</button>&nbsp'
                     + '<button type="button" class="btn btn-light button answer">' 
-                    + answers[0] + '</button>'
+                    + answers[1] + '</button>&nbsp'
                     + '<button type="button" class="btn btn-light button answer">' 
-                    + answers[1] + '</button>'
+                    + answers[2] + '</button>&nbsp'
                     + '<button type="button" class="btn btn-light button answer">' 
-                    + answers[2] + '</button>'
-                    + '<button type="button" class="btn btn-light button answer">' 
-                    + answers[3] + '</button>')
+                    + answers[3] + '</button></p>')
     }
 
     ballColor = ['red', 'blue', 'green', 'yellow'];

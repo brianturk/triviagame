@@ -5,5 +5,29 @@
 .timer {
     font-size:70px;
     text-align: center;
+    width: 85px;    
 }
 
+
+#main {
+    height: 200px;
+}
+
+.card {
+    height: 200px;
+}
+
+.border {
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    width: 20px !important;
+}
+
+.timers {
+    float: left;
+}
+
+.question-card {
+    margin-right: 10px;
+}
