@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sports Trivia</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+            <h1 class="display-4">Sports Trivia <i class="fas fa-baseball-ball"></i>&nbsp<i class="fas fa-basketball-ball"></i>&nbsp<i class="fas fa-football-ball"></i>&nbsp<i class="far fa-futbol"></i></h1>
+        </div>
+        </div>
+        </div>
+    </div>
+    <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                        <div class="card text-white bg-info mb-3" style="max-width: 45rem;">
+                                <div class="card-body" id="main">
+                                  <p class="card-text"></p>
+                                </div>
+                              </div>
+                </div>
+                <div class="col-md-2">
+                        <div class="card text-white bg-success mb-3" style="max-width: 8rem;">
+                                <div class="card-header">Question <i class="fas fa-stopwatch"></i></div>
+                                <div class="card-body">
+                                  <p class="card-text timer" id="question-time">5</p>
+                                </div>
+                              </div>
+                             
+                </div>
+                <div class="col-md-2">
+                    <div class="card text-white bg-success mb-3" style="max-width: 8rem;">
+                        <div class="card-header">&nbsp&nbspOverall <i class="fas fa-stopwatch"></i></div>
+                        <div class="card-body">
+                          <p class="card-text timer" id="total-time">60</p>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+
+
+    <script src="assets/javascript/game.js"></script>
+</body>
+
+</html>
