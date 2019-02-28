@@ -1,33 +1,68 @@
+
 .jumbotron-fluid {
     padding: 10px;
+
+}
+
+.fas, .far {
+    font-size: 48px;
 }
 
 .timer {
-    font-size:70px;
-    text-align: center;
-    width: 85px;    
+    /* font-size:70px; */
+    /* text-align: center; */
+    /* width: 255px;   */
+    padding: 10px;  
+    padding-top: 20px;
 }
-
-
-#main {
-    height: 200px;
-}
-
-.card {
-    height: 200px;
-}
-
-.border {
-    border-width: 1px;
-    border-style: solid;
-    border-color: black;
-    width: 20px !important;
-}
-
 .timers {
+    padding: 0px;
     float: left;
+    text-align: center;
 }
+
+.maincard {
+    height: 100% !important;
+}
+
+#main { 
+    padding-bottom: 0px !important;
+}
+
+/* .card {
+    height: 200px;
+} */
+
+body {
+    background-image: url("../../assets/images/astroturf_seamless_photo.jpg");
+}
+
 
 .question-card {
     margin-right: 10px;
+    width: 185px;
 }
+
+.timer-images {
+    width: 80px;
+    margin: 0px;
+}
+
+#sports-trivia {
+    width: 500px;
+}
+
+.bg-light {
+    background-color:  rgb(233,236,239) !important;
+
+}
+
+#timer-title {
+    padding-top: 20px;
+}
+
+.btn {
+    margin-top: 5px !important;
+}
+
+
