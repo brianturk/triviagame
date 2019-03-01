@@ -130,8 +130,6 @@ $(document).ready(function () {
     }
 
     function answer() {
-        // if this.
-        // alert("hello");
         if (state === "question") {
             $(this).css("background-color", "green");
             $(this).css("border-color", "green");
